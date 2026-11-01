@@ -129,13 +129,14 @@ These checks provide an initial level of confidence in the dataset before furthe
 
 ## 6. Business Questions and SQL Analysis
 
-The analysis will investigate:
+The SQL analysis addresses the following six business questions:
 
-1. What are the total sales, total profit and overall profit margin?
-2. Which product categories and sub-categories perform best?
-3. Which regions generate the highest sales and profit?
-4. Which products or sub-categories generate losses?
-5. How are discounts associated with profitability?
+1. **What were the retailer's total sales, total profit and overall profit margin?**
+2. **Which product categories generate the highest sales and profit?**
+3. **Which product sub-categories are the most and least profitable?**
+4. **Which regions generate the highest sales and profit?**
+5. **Which individual products are generating losses?**
+6. **How do discount levels relate to profitability?**
 
 ### Business Question 1: What were the retailer's total sales, total profit and overall profit margin?
 
@@ -176,7 +177,7 @@ This means the business generated approximately $12.47 in profit for every $100 
 
 The overall profit margin provides a baseline for evaluating profitability across product categories, sub-categories and geographical regions. Further analysis is required to identify which areas contribute most to the retailer's profitability.
 
-### Business Question 2: Which product categories and sub-categories perform best?
+### Business Question 2: Which product categories generate the highest sales and profit?
 
 This is an important business question because high sales do not always mean high profitability.
 
@@ -221,7 +222,7 @@ Technology was the strongest-performing category in terms of both sales and tota
 The analysis suggests that the business should maintain its focus on Technology and Office Supplies while investigating the factors affecting Furniture profitability. Further analysis of Furniture sub-categories and discount levels may help identify the sources of lower profitability.
 
 
-### Business Question 3: Which regions generate the highest sales and profit?
+### Business Question 3: Which product sub-categories are the most and least profitable?
 
 **Objective**  
 To evaluate the sales performance and profitability of individual product sub-categories. The analysis aims to identify which sub-categories contribute the most to total sales and profit, as well as those with low or negative profitability.
@@ -291,7 +292,7 @@ Further analysis of discount levels may help investigate factors associated with
 Tables had the highest sales of all Furniture sub-categories, but also the largest loss. This makes it an important product group to investigate further.
 
 
-### Business Question 4: Which products or sub-categories generate losses?
+### Business Question 4: Which regions generate the highest sales and profit?
 
 **Objective**
 
@@ -343,7 +344,7 @@ The West region was the strongest performer in terms of sales, total profit and 
 Further analysis of product mix and discount levels by region may provide additional insight into these differences.
 
 
-### Business Question 5: How are discounts associated with profitability?
+### Business Question 5: Which individual products are generating losses?
 
 **Objective**
 
@@ -365,7 +366,6 @@ GROUP BY
     "Product Name",
     "Category",
     "Sub-Category"
-HAVING SUM("Profit") < 0
 ORDER BY total_profit ASC;
 ```
 
@@ -407,10 +407,8 @@ A follow-up analysis of discount levels will help investigate whether higher dis
 
 ## Business Question 6: How are discounts associated with profitability?
 
-## Business Question 6: How do discount levels relate to profitability?
-
 ### Objective
-To investigate the relationship between discount levels and profitability by comparing the number of records, total sales, total profit and profit margin across different discount levels.
+To examine how different discount levels are associated with sales, total profit and profit margin, and identify discount levels at which the retailer begins to experience losses.
 
 ### SQL Query
 ```sql
@@ -508,4 +506,4 @@ The six SQL business questions have been analysed, and evidence-based recommenda
 - [x] Loss-making product analysis
 - [x] Discount and profitability analysis
 - [x] Business recommendations
-- [ ] Final portfolio documentation
+- [x] Final portfolio documentation
