@@ -118,6 +118,44 @@ The analysis will investigate:
 5. Which products or sub-categories generate losses?
 6. How are discounts associated with profitability?
 
+## Solutions
+
+1. How much did the retailer sell, how much profit did it make, and what was its overall profit margin?
+
+   (total_profit/total_sales)*100
+   
+   - Find total_sales
+   - Find total_profit
+   - Find profit_margin_percentage
+
+  ```sql
+SELECT
+    ROUND(SUM("Sales"), 2) AS total_sales,
+    ROUND(SUM("Profit"), 2) AS total_profit,
+    ROUND(
+        SUM("Profit") * 100.0 / SUM("Sales"), 2
+    ) AS profit_margin_percentage
+FROM "Sample-Superstore";
+```
+Results:
+
+Metric                                 Result
+
+total_sales                            $2,297,200.86
+
+total_profit                           $286,397.02
+
+Overall profit_margin_percentage       12.47%
+
+
+Business Finding:
+
+The retailer generated total sales of $2,297,200.86 and total profit of $286,397.02, resulting in an overall profit margin of 12.47%. This means the business generated approximately $12.47 in profit for every $100 in sales.
+
+Business Interpretation:
+
+The overall margin provides a baseline for evaluating profitability across product categories, sub-categories and geographical regions. Further analysis is required to identify which areas contribute most to the retailer's profitability.
+
 ## 6. Analysis Results
 
 *To be completed as SQL analysis progresses.*
