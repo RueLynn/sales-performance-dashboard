@@ -173,6 +173,47 @@ The overall profit margin provides a baseline for evaluating profitability acros
 
 This is an important business question because high sales do not always mean high profitability.
 
+**Objective**
+
+To compare the three product categories (Technology, Furniture and Office Supplies) based on total sales, total profit and profit margin. The analysis aims to identify which categories contribute most to business revenue and profitability.
+
+**SQL Query**
+
+```sql
+SELECT
+    "Category",
+    ROUND(SUM("Sales"), 2) AS total_sales,
+    ROUND(SUM("Profit"), 2) AS total_profit,
+    ROUND(
+        SUM("Profit") * 100.0 / SUM("Sales"), 2
+    ) AS profit_margin_percentage
+FROM "Sample-Superstore"
+GROUP BY "Category"
+ORDER BY total_sales DESC;
+```
+
+**Results**
+
+| Category | Total Sales ($) | Total Profit ($) | Profit Margin (%) |
+|---|---:|---:|---:|
+| Technology | 836,154.03 | 145,454.95 | 17.40 |
+| Furniture | 741,999.80 | 18,451.27 | 2.49 |
+| Office Supplies | 719,047.03 | 122,490.80 | 17.04 |
+
+**Key Findings**
+
+1. **Technology** generated the highest sales ($836,154.03) and the highest profit ($145,454.95), with a profit margin of 17.40%.
+2. **Office Supplies** generated $719,047.03 in sales and $122,490.80 in profit, achieving a profit margin of 17.04%.
+3. **Furniture** generated $741,999.80 in sales but only $18,451.27 in profit. Its profit margin of 2.49% was considerably lower than the other two categories.
+
+**Business Interpretation**
+
+Technology was the strongest-performing category in terms of both sales and total profit. Office Supplies also demonstrated strong profitability despite generating the lowest sales of the three categories. Furniture generated more sales than Office Supplies but significantly less profit, indicating a potential profitability challenge that requires further investigation.
+
+**Conclusion**
+
+The analysis suggests that the business should maintain its focus on Technology and Office Supplies while investigating the factors affecting Furniture profitability. Further analysis of Furniture sub-categories and discount levels may help identify the sources of lower profitability.
+
 
 ### Business Question 3: Which regions generate the highest sales and profit?
 
