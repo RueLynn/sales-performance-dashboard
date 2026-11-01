@@ -407,6 +407,42 @@ A follow-up analysis of discount levels will help investigate whether higher dis
 
 ## Business Question 6: How are discounts associated with profitability?
 
+## Business Question 6: How do discount levels relate to profitability?
+
+### Objective
+To investigate the relationship between discount levels and profitability by comparing the number of records, total sales, total profit and profit margin across different discount levels.
+
+### SQL Query
+```sql
+SELECT
+    "Discount",
+    COUNT(*) AS number_of_orders,
+    ROUND(SUM("Sales"), 2) AS total_sales,
+    ROUND(SUM("Profit"), 2) AS total_profit,
+    ROUND(
+        SUM("Profit") * 100.0 / SUM("Sales"), 2
+    ) AS profit_margin_percentage
+FROM "Sample-Superstore"
+GROUP BY "Discount"
+ORDER BY "Discount";
+```
+
+### Key Findings
+- The 0% discount group recorded the highest total profit of **$320,987.60**, with a profit margin of **29.51%**.
+- Discount groups of 10%, 15% and 20% remained profitable, although their margins were lower than the 0% discount group.
+- Discount levels from 30% to 80% recorded negative total profits.
+- The 70% discount group recorded the largest total loss of **$40,075.36**.
+- The 80% discount group recorded the lowest profit margin at **-180.03%**.
+
+### Business Interpretation
+The results suggest an association between higher discount levels and lower profitability. Although discounts may support sales activity, aggressive discounting can reduce profitability and may result in losses.
+
+The business should review its discounting practices, particularly at discount levels of 30% and above. However, this analysis does not establish that discounts alone caused the losses. Other factors, such as product costs and product mix, may also influence profitability.
+
+### Conclusion
+Discount levels are an important factor to consider when evaluating sales performance. The analysis indicates that transactions with discounts of 30% and above were unprofitable overall in this dataset. Businesses should therefore assess whether the additional sales generated through higher discounts justify the reduction in profit.
+
+
 
 ## 7. Business Recommendations
 
