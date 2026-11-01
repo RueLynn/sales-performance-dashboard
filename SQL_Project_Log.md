@@ -26,14 +26,16 @@ The dataset contains retail transaction records covering 2014–2017.
 
 ### Task 1: Import the dataset
 
-**Objective:** Import the source dataset into SQLite for querying and analysis.
+**Objective:** 
+Import the source dataset into SQLite for querying and analysis.
 
 - Imported `Sample-Superstore.csv` using DB Browser for SQLite.
 - Imported table name: `Sample-Superstore`.
 
 ### Task 2: Preview the dataset
 
-**Objective:** Inspect the records to confirm that the data was imported and can be queried.
+**Objective:** 
+Inspect the records to confirm that the data was imported and can be queried.
 
 ```sql
 SELECT *
@@ -58,13 +60,15 @@ FROM "Sample-Superstore";
 
 ### Task 4: Inspect the table structure
 
-**Objective:** Identify the available columns and their data types before performing analysis.
+**Objective:** 
+Identify the available columns and their data types before performing analysis.
 
 ```sql
 PRAGMA table_info("Sample-Superstore");
 ```
 
-**Result:** Identified 22 columns, including sales, profit, discount, quantity, customer, product and geographical information.
+**Result:** 
+Identified 22 columns, including sales, profit, discount, quantity, customer, product and geographical information.
 
 **Observation:** SQLite identified Sales and Profit as REAL fields, Quantity as INTEGER, and Order Date and Ship Date as TEXT. Date formatting will need to be considered when performing time-based analysis.
 
@@ -72,7 +76,8 @@ PRAGMA table_info("Sample-Superstore");
 
 ### Task 5: Check for duplicate records
 
-**Objective:** Identify duplicate Row IDs that could affect the accuracy of the analysis.
+**Objective:** 
+Identify duplicate Row IDs that could affect the accuracy of the analysis.
 
 ```sql
 SELECT
@@ -89,7 +94,8 @@ HAVING COUNT(*) > 1;
 
 ### Task 6: Check for missing values
 
-**Objective:** Identify missing information in important business fields.
+**Objective:** 
+Identify missing information in important business fields.
 
 ```sql
 SELECT
@@ -279,9 +285,12 @@ These findings suggest that management should assess product-level profitability
 
 The analysis identified significant differences in profitability across the 17 product sub-categories. Copiers and Paper demonstrated strong profit margins, while Tables and Bookcases were loss-making. The findings highlight the importance of monitoring both sales and profit when evaluating product performance.
 
-Further analysis of discount levels may help investigate factors associated with the losses observed in Tables, Bookcases and Supplies.
+Further analysis of discount levels may help investigate factors associated with the losses observed in Tables, Bookcases, and Supplies.
 
-**Status:** Completed
+**My Analysis**
+Tables had the highest sales of all Furniture sub-categories, but also the largest loss. This makes it an important product group to investigate further.
+
+
 ### Business Question 4: Which products or sub-categories generate losses?
 
 *Pending analysis.*
