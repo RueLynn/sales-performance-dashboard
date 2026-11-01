@@ -89,9 +89,11 @@ HAVING COUNT(*) > 1;
 
 **Objective:**  Identify missing values that could affect the accuracy of the analysis.
 
-- SQL method: Used GROUP BY, COUNT() and HAVING to identify missing values.
-- Result: 1 rows returned.
-- Finding: No missing values.
+- SQL methods: Used COUNT(), SUM(), CASE WHEN, IS NULL and TRIM().
+- Result: 9,994 records checked; zero missing values in Order ID, Order Date, Customer ID, Sales and Profit.
+- Finding: No missing values were identified in the five selected fields.
+  
+Overall validation conclusion for task 5 and 6: No duplicate Row IDs or missing values in the five selected fields were found. The dataset passed these initial validation checks.
 
   
 ```sql
