@@ -171,7 +171,8 @@ The overall profit margin provides a baseline for evaluating profitability acros
 
 ### Business Question 2: Which product categories and sub-categories perform best?
 
-*Pending analysis.*
+This is an important business question because high sales do not always mean high profitability.
+
 
 ### Business Question 3: Which regions generate the highest sales and profit?
 
