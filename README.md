@@ -81,3 +81,32 @@ The repository contains the SQL scripts, data documentation, Excel work, Power B
 ## 10. Project Disclaimer
 
 Sample Superstore is a fictional retail dataset used for educational and portfolio purposes. Results do not represent actual business performance.
+
+
+## Project Progress
+
+### Completed
+- Explored the Sample Superstore dataset.
+- Conducted data quality checks and validation in Excel.
+- Created PivotTables analysing sales, profit and profit margin.
+- Investigated category, subcategory and discount performance.
+- Prepared an Excel Executive Summary.
+- Published initial SQL exploration, data-cleaning and business-analysis queries.
+- Documented preliminary findings and recommendations.
+
+### In Progress
+- Reviewing and refining the Excel Executive Summary.
+- Validating and extending the analysis using SQL.
+- Developing an interactive business intelligence dashboard.
+
+### Next Steps
+- Add screenshots of the Excel analysis.
+- Compare Excel results with SQL outputs.
+- Build and document the interactive dashboard.
+- Summarise actionable business insights for a non-technical audience.
+
+**Dataset:** Sample Superstore  
+**Tools:** Microsoft Excel, SQL; interactive dashboard development planned  
+**Project type:** Business and sales performance analysis
+
+*This project is being developed as a learning portfolio. Findings are based on historical data from a fictional retailer and should not be interpreted as proof of causation.*
