@@ -1,5 +1,16 @@
-sql/
-01_data_exploration.sql
-02_data_validation.sql 
-03_sales_analysis.sql
-SQL_Project_Log.md
+-- PROJECT: Sample Superstore Sales Analysis
+-- SECTION 1: DATA EXPLORATION
+-- Database: SQLite
+-- Table: Sample-Superstore
+
+-- Query 1: Preview the first 10 records
+SELECT *
+FROM "Sample-Superstore"
+LIMIT 10;
+
+-- Query 2: Count total records
+SELECT COUNT(*) AS total_records
+FROM "Sample-Superstore";
+
+-- Query 3: Inspect table structure
+PRAGMA table_info("Sample-Superstore");
