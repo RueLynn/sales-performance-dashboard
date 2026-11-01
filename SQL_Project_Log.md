@@ -443,10 +443,56 @@ The business should review its discounting practices, particularly at discount l
 Discount levels are an important factor to consider when evaluating sales performance. The analysis indicates that transactions with discounts of 30% and above were unprofitable overall in this dataset. Businesses should therefore assess whether the additional sales generated through higher discounts justify the reduction in profit.
 
 
-
 ## 7. Business Recommendations
 
-To be completed after the findings have been evaluated.
+### Objective
+To translate the findings from the six SQL business questions into practical recommendations that could help improve sales performance and profitability.
+
+### Key Findings
+- **Category performance:** Technology generated the highest sales and profit, while Furniture recorded the lowest category profit margin at 2.49%.
+- **Sub-category performance:** Tables recorded a loss of $17,725.48, while Bookcases recorded a loss of $3,472.56.
+- **Product-level performance:** Several individual products generated losses, with some of the largest losses concentrated in Machines and Tables.
+- **Discount analysis:** Discount groups from 30% to 80% recorded negative total profits. The 70% discount group recorded the largest total loss of $40,075.36.
+- **Regional performance:** West recorded the highest regional sales, profit and profit margin, while Central had the lowest regional profit margin at 7.92%.
+- **Strong-performing products:** Copiers generated the highest sub-category profit of $55,617.82.
+
+### Business Recommendations
+
+**1. Improve Furniture Category Profitability**
+
+Review the pricing, costs and discount practices associated with Furniture, particularly Tables and Bookcases. Investigate the factors contributing to their losses and identify opportunities to improve profitability.
+
+**2. Strengthen Product-Level Profitability Monitoring**
+
+Monitor individual product profitability regularly to identify products generating persistent losses. Investigate selling prices, costs and discount levels before making decisions about pricing, promotions or product availability.
+
+**3. Review the Discount Strategy**
+
+Review high discount levels, particularly those of 30% and above, because these discount groups recorded negative total profits in the dataset. Evaluate whether promotional activities generate sufficient profit to justify the discounts offered.
+
+**4. Investigate Regional Performance**
+
+Investigate the factors contributing to Central's lower profit margin. Review its product mix, pricing and discount patterns to identify potential improvement opportunities. Continue monitoring West's performance to understand the factors associated with its stronger results.
+
+**5. Maintain Focus on Strong-Performing Categories**
+
+Continue monitoring Technology, which generated the highest category sales and profit. Further analysis of strong-performing sub-categories, including Copiers, may help inform product and business priorities.
+
+**6. Introduce Regular Sales and Profitability Reporting**
+
+Use regular reporting or an interactive dashboard to monitor sales, profit, profit margins, product performance, regional performance and discount levels. This would help management identify emerging losses and make more informed decisions.
+
+### Overall Conclusion
+
+The analysis recorded total sales of $2,297,200.86, total profit of $286,397.02 and an overall profit margin of 12.47%. Although the business generated positive overall profit, the findings revealed opportunities to improve profitability by reviewing loss-making products, high discount levels, Furniture sub-categories and regional performance.
+
+The recommendations are based on historical data from the Sample Superstore dataset covering 2014–2017. Further investigation would be required to establish the causes of losses and assess the likely impact of proposed changes.
+
+### Project Status
+**Status: Completed**
+
+The six SQL business questions have been analysed, and evidence-based recommendations have been documented. The interactive dashboard and final project presentation remain separate project deliverables.
+
 
 ## 8. Project Status
 
@@ -457,9 +503,9 @@ To be completed after the findings have been evaluated.
 - [x] Duplicate Row IDs checked
 - [x] Missing values checked in five selected fields
 - [x] Overall sales and profit analysis completed
-- [ ] Category and sub-category analysis
-- [ ] Regional analysis
-- [ ] Loss-making product analysis
-- [ ] Discount and profitability analysis
-- [ ] Business recommendations
+- [x] Category and sub-category analysis
+- [x] Regional analysis
+- [x] Loss-making product analysis
+- [x] Discount and profitability analysis
+- [x] Business recommendations
 - [ ] Final portfolio documentation
