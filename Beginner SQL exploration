@@ -1,9 +1,9 @@
--- PROJECT: Sample Superstore Sales Analysis
+-- PROJECT: Sample Superstore Sales Analysis in SQL
 -- SECTION 1: DATA EXPLORATION
 -- Database: SQLite
 -- Table: Sample-Superstore
 
--- Query 1: Preview the first 10 records
+-- Query 1: To preview the first 10 records
 SELECT *
 FROM "Sample-Superstore"
 LIMIT 10;
@@ -12,5 +12,5 @@ LIMIT 10;
 SELECT COUNT(*) AS total_records
 FROM "Sample-Superstore";
 
--- Query 3: Inspect table structure
+-- Query 3: Inspect table structure and what the dataset contains
 PRAGMA table_info("Sample-Superstore");
