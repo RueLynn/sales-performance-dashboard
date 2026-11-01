@@ -293,11 +293,118 @@ Tables had the highest sales of all Furniture sub-categories, but also the large
 
 ### Business Question 4: Which products or sub-categories generate losses?
 
-*Pending analysis.*
+**Objective**
+
+To analyse sales, total profit and profit margin across the four geographical regions (West, East, Central and South). The analysis aims to identify the strongest-performing regions and areas that may require further attention.
+
+**SQL Query**
+
+```sql
+SELECT
+    "Region",
+    ROUND(SUM("Sales"), 2) AS total_sales,
+    ROUND(SUM("Profit"), 2) AS total_profit,
+    ROUND(
+        SUM("Profit") * 100.0 / SUM("Sales"), 2
+    ) AS profit_margin_percentage
+FROM "Sample-Superstore"
+GROUP BY "Region"
+ORDER BY total_sales DESC;
+```
+
+**Results**
+
+| Region | Total Sales ($) | Total Profit ($) | Profit Margin (%) |
+|---|---:|---:|---:|
+| West | 725,457.82 | 108,418.45 | 14.94 |
+| East | 678,781.24 | 91,522.78 | 13.48 |
+| Central | 501,239.89 | 39,706.36 | 7.92 |
+| South | 391,721.91 | 46,749.43 | 11.93 |
+
+**Key Findings**
+
+1. **West** was the strongest-performing region, generating the highest sales of $725,457.82 and the highest profit of $108,418.45. It also achieved the highest profit margin of 14.94%.
+2. **East** ranked second in sales and profit, generating $678,781.24 in sales and $91,522.78 in profit, with a margin of 13.48%.
+3. **Central** generated $501,239.89 in sales but achieved the lowest profit margin of 7.92%. Its profit was $39,706.36.
+4. **South** recorded the lowest sales of $391,721.91 but generated $46,749.43 in profit, exceeding Central's total profit despite having lower sales.
+
+**Business Interpretation**
+
+The results indicate differences in both sales contribution and profitability across the four regions. West and East demonstrated stronger overall performance, contributing the highest sales and profit.
+
+Central requires further investigation because it generated more sales than South but achieved a lower total profit and profit margin. This suggests that higher sales do not necessarily translate into stronger profitability.
+
+South also presents an interesting result: despite having the lowest sales, it generated more profit than Central. This highlights the importance of evaluating profit margins alongside revenue when comparing regional performance.
+
+**Conclusion**
+
+The West region was the strongest performer in terms of sales, total profit and profit margin, while Central recorded the weakest profit margin. Management should investigate the factors affecting Central's profitability and identify practices from the stronger-performing regions that could potentially be applied elsewhere.
+
+Further analysis of product mix and discount levels by region may provide additional insight into these differences.
+
 
 ### Business Question 5: How are discounts associated with profitability?
 
-*Pending analysis.*
+**Objective**
+
+To identify individual products with negative total profit and assess their sales contribution and financial impact. This analysis aims to highlight products that may require further investigation regarding pricing, discounting and profitability.
+
+**SQL Query**
+
+```sql
+SELECT
+    "Product ID",
+    "Product Name",
+    "Category",
+    "Sub-Category",
+    ROUND(SUM("Sales"), 2) AS total_sales,
+    ROUND(SUM("Profit"), 2) AS total_profit
+FROM "Sample-Superstore"
+GROUP BY
+    "Product ID",
+    "Product Name",
+    "Category",
+    "Sub-Category"
+HAVING SUM("Profit") < 0
+ORDER BY total_profit ASC;
+```
+
+**Results**
+
+The query returned a list of individual products with negative total profit.
+
+The five largest losses identified were:
+
+| Product | Category | Sub-category | Total Profit ($) |
+|---|---|---|---:|
+| Cubify CubeX 3D Printer Double Head Print | Technology | Machines | -8,879.97 |
+| Lexmark MX611dhe Monochrome Laser Printer | Technology | Machines | -4,589.97 |
+| Cubify CubeX 3D Printer Triple Head Print | Technology | Machines | -3,839.99 |
+| Chromcraft Bull-Nose Wood Oval Conference Tables & Bases | Furniture | Tables | -2,876.12 |
+| Bush Advantage Collection Racetrack Conference Table | Furniture | Tables | -1,934.40 |
+
+**Key Findings**
+
+1. The Cubify CubeX 3D Printer Double Head Print recorded the largest individual product loss of $8,879.97.
+2. Technology Machines featured prominently among the products with the largest losses.
+3. Furniture Tables also contributed significantly to the identified losses, with several table products appearing near the top of the results.
+4. Loss-making products were identified across Technology, Furniture and Office Supplies, indicating that profitability challenges are not limited to one category.
+5. Some products generated substantial sales revenue but still recorded negative total profit.
+
+**Business Interpretation**
+
+The findings demonstrate that individual products can negatively affect overall business profitability, even when they contribute to sales revenue.
+
+Technology Machines and Furniture Tables warrant further investigation because several products in these sub-categories recorded substantial losses. Management should review their pricing, discounting and associated costs to understand the factors contributing to their negative profitability.
+
+The results also suggest that product performance should be monitored at an individual product level rather than relying exclusively on category-level performance.
+
+**Conclusion**
+
+The analysis identified individual products generating negative total profit, with the largest losses concentrated among selected Technology Machines and Furniture Tables. These products represent potential areas for further investigation and profitability improvement.
+
+A follow-up analysis of discount levels will help investigate whether higher discounts are associated with the losses observed across the product portfolio.
+
 
 ## 7. Business Recommendations
 
