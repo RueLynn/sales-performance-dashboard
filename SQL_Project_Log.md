@@ -405,6 +405,8 @@ The analysis identified individual products generating negative total profit, wi
 
 A follow-up analysis of discount levels will help investigate whether higher discounts are associated with the losses observed across the product portfolio.
 
+## Business Question 6: How are discounts associated with profitability?
+
 
 ## 7. Business Recommendations
 
