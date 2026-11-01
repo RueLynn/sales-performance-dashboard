@@ -1,1 +1,45 @@
-reports/business_insights.md
+# Business Recommendations
+
+## 1. Improve Furniture Category Profitability
+
+The Furniture category generated total sales of $741,999.80 but recorded a profit margin of only 2.49%. Tables and Bookcases were loss-making sub-categories, while Chairs and Furnishings remained profitable.
+
+**Recommendation:** Review the pricing, costs and discount practices associated with Furniture products, particularly Tables and Bookcases. Identify whether adjustments to pricing or discount structures could improve profitability without unnecessarily affecting sales.
+
+## 2. Strengthen Product-Level Profitability Monitoring
+
+The individual product analysis identified several loss-making products. The largest losses included selected Machines and Tables.
+
+**Recommendation:** Introduce regular product-level profitability reviews to identify products that consistently generate losses. Investigate their selling prices, costs and discount levels before making decisions about pricing, promotions or product availability.
+
+## 3. Review the Discount Strategy
+
+The discount analysis showed that discount groups from 30% to 80% recorded negative total profits. The 70% discount group recorded the largest total loss of $40,075.36.
+
+**Recommendation:** Review the use of high discount levels, particularly discounts of 30% and above. Establish appropriate discount controls and assess the profitability of promotional activities before extending them. The relationship identified in this analysis does not establish that discounts alone caused the losses.
+
+## 4. Investigate Regional Performance
+
+The West region recorded the highest sales, profit and profit margin, while Central recorded the lowest profit margin at 7.92%.
+
+**Recommendation:** Investigate the factors contributing to the difference in regional performance. Review Central's product mix, discount patterns and pricing to identify potential improvement opportunities. Continue monitoring the West region to understand the factors associated with its stronger performance.
+
+## 5. Maintain Focus on Strong-Performing Products
+
+Technology generated the highest category sales of $836,154.03 and the highest category profit of $145,454.95. At sub-category level, Copiers generated the highest profit of $55,617.82.
+
+**Recommendation:** Continue monitoring the performance of strong-performing categories and sub-categories. Use their performance as a basis for evaluating product opportunities and business priorities, while considering the profitability of individual products.
+
+## 6. Introduce Regular Sales and Profitability Reporting
+
+The analysis demonstrates that high sales do not necessarily translate into high profitability. Furniture, for example, generated substantial sales but had a much lower profit margin than Technology and Office Supplies.
+
+**Recommendation:** Use a regular sales performance dashboard to monitor total sales, total profit, profit margins, product performance, regional performance and discount levels. This would help management identify emerging losses and make more informed decisions.
+
+## Overall Conclusion
+
+The analysis indicates that the business is generating positive overall profitability, with total sales of $2,297,200.86, total profit of $286,397.02 and an overall profit margin of 12.47%.
+
+However, the findings also highlight opportunities to improve profitability through closer monitoring of loss-making products, reviewing high discount levels, addressing weaker-performing sub-categories and investigating regional performance differences.
+
+The recommendations are based on historical data from the Sample Superstore dataset covering 2014–2017. Further investigation would be required before implementing significant pricing, product or operational changes.
