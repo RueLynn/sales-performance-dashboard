@@ -22,7 +22,7 @@ The dataset contains retail transaction records covering 2014–2017.
 - Total columns: 22, including an additional import-related row ID column.
 - Key business fields: Order Date, Region, Category, Sub-Category, Sales, Quantity, Discount and Profit.
 
-## 4. Data Exploration and Validation
+## 4. Data Exploration 
 
 ### Task 1: Import the dataset
 
@@ -67,6 +67,8 @@ PRAGMA table_info("Sample-Superstore");
 
 **Observation:** SQLite identified Sales and Profit as REAL fields, Quantity as INTEGER, and Order Date and Ship Date as TEXT. Date formatting will need to be considered when performing time-based analysis.
 
+# Data Validation
+
 ### Task 5: Check for duplicate records
 
 **Objective:**  Identify duplicate Row IDs that could affect the accuracy of the analysis.
@@ -74,6 +76,34 @@ PRAGMA table_info("Sample-Superstore");
 - SQL method: Used GROUP BY, COUNT() and HAVING to identify repeated Row IDs.
 - Result: 0 duplicate Row IDs found.
 - Finding: All Row IDs appear to be unique.
+  
+```sql
+SELECT
+    "Row ID",
+    COUNT(*) AS occurrences
+FROM "Sample-Superstore"
+GROUP BY "Row ID"
+HAVING COUNT(*) > 1;
+```
+### Task 6: Check for missing values
+
+**Objective:**  Identify missing values that could affect the accuracy of the analysis.
+
+- SQL method: Used GROUP BY, COUNT() and HAVING to identify missing values.
+- Result: 1 rows returned.
+- Finding: No missing values.
+
+  
+```sql
+SELECT
+    COUNT(*) AS total_records,
+    SUM(CASE WHEN "Order ID" IS NULL OR TRIM("Order ID") = '' THEN 1 ELSE 0 END) AS missing_order_ids,
+    SUM(CASE WHEN "Order Date" IS NULL OR TRIM("Order Date") = '' THEN 1 ELSE 0 END) AS missing_order_dates,
+    SUM(CASE WHEN "Customer ID" IS NULL OR TRIM("Customer ID") = '' THEN 1 ELSE 0 END) AS missing_customer_ids,
+    SUM(CASE WHEN "Sales" IS NULL THEN 1 ELSE 0 END) AS missing_sales,
+    SUM(CASE WHEN "Profit" IS NULL THEN 1 ELSE 0 END) AS missing_profit
+FROM "Sample-Superstore";
+```
 
 ## 5. Business Questions
 
