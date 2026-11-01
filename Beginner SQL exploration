@@ -1,1 +1,5 @@
-sql/01_data_exploration.sql
+sql/
+01_data_exploration.sql
+02_data_validation.sql 
+03_sales_analysis.sql
+SQL_Project_Log.md
