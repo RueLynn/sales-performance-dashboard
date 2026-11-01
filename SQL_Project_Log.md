@@ -11,7 +11,7 @@ The objective is to analyse sales, profitability, product performance, regional 
 - **Database:** SQLite
 - **SQL environment:** DB Browser for SQLite
 - **Dataset:** Sample Superstore CSV
-- **Data analysis:** SQL, with Excel used for preliminary analysis
+- **Data analysis:** SQL and Excel
 - **Portfolio platform:** GitHub
 
 ## 3. Dataset Overview
@@ -22,17 +22,18 @@ The dataset contains retail transaction records covering 2014–2017.
 - Total columns: 22, including an additional import-related row ID column.
 - Key business fields: Order Date, Region, Category, Sub-Category, Sales, Quantity, Discount and Profit.
 
-## 4. Data Exploration 
+## 4. Data Exploration
 
 ### Task 1: Import the dataset
 
-Imported `Sample-Superstore.csv` into SQLite using DB Browser for SQLite.
+**Objective:** Import the source dataset into SQLite for querying and analysis.
 
-The imported table is named `Sample-Superstore`.
+- Imported `Sample-Superstore.csv` using DB Browser for SQLite.
+- Imported table name: `Sample-Superstore`.
 
 ### Task 2: Preview the dataset
 
-**Business/technical objective:** Inspect the records to confirm that the data was imported and can be queried.
+**Objective:** Inspect the records to confirm that the data was imported and can be queried.
 
 ```sql
 SELECT *
@@ -67,16 +68,12 @@ PRAGMA table_info("Sample-Superstore");
 
 **Observation:** SQLite identified Sales and Profit as REAL fields, Quantity as INTEGER, and Order Date and Ship Date as TEXT. Date formatting will need to be considered when performing time-based analysis.
 
-# Data Validation
+## 5. Data Validation
 
 ### Task 5: Check for duplicate records
 
-**Objective:**  Identify duplicate Row IDs that could affect the accuracy of the analysis.
+**Objective:** Identify duplicate Row IDs that could affect the accuracy of the analysis.
 
-- SQL method: Used GROUP BY, COUNT() and HAVING to identify repeated Row IDs.
-- Result: 0 duplicate Row IDs found.
-- Finding: All Row IDs appear to be unique.
-  
 ```sql
 SELECT
     "Row ID",
@@ -85,17 +82,15 @@ FROM "Sample-Superstore"
 GROUP BY "Row ID"
 HAVING COUNT(*) > 1;
 ```
+
+**Result:** 0 duplicate Row IDs found.
+
+**Finding:** No repeated Row IDs were identified.
+
 ### Task 6: Check for missing values
 
-**Objective:**  Identify missing values that could affect the accuracy of the analysis.
+**Objective:** Identify missing information in important business fields.
 
-- SQL methods: Used COUNT(), SUM(), CASE WHEN, IS NULL and TRIM().
-- Result: 9,994 records checked; zero missing values in Order ID, Order Date, Customer ID, Sales and Profit.
-- Finding: No missing values were identified in the five selected fields.
-  
-Overall validation conclusion for task 5 and 6: No duplicate Row IDs or missing values in the five selected fields were found. The dataset passed these initial validation checks.
-
-  
 ```sql
 SELECT
     COUNT(*) AS total_records,
@@ -107,28 +102,42 @@ SELECT
 FROM "Sample-Superstore";
 ```
 
-## 5. Business Questions
+**Results:**
+
+| Validation field | Missing values |
+|---|---:|
+| Total records | 9,994 |
+| Order ID | 0 |
+| Order Date | 0 |
+| Customer ID | 0 |
+| Sales | 0 |
+| Profit | 0 |
+
+**Finding:** No missing values were identified in the five selected fields.
+
+### Data Validation Conclusion
+
+The dataset passed the initial validation checks. No duplicate Row IDs were identified, and the five selected business fields contained no missing values.
+
+These checks provide an initial level of confidence in the dataset before further analysis.
+
+## 6. Business Questions and SQL Analysis
 
 The analysis will investigate:
 
-1. What are the total sales and total profit?
-2. What is the overall profit margin?
-3. Which product categories and sub-categories perform best?
-4. Which regions generate the highest sales and profit?
-5. Which products or sub-categories generate losses?
-6. How are discounts associated with profitability?
+1. What are the total sales, total profit and overall profit margin?
+2. Which product categories and sub-categories perform best?
+3. Which regions generate the highest sales and profit?
+4. Which products or sub-categories generate losses?
+5. How are discounts associated with profitability?
 
-## Solutions
+### Business Question 1: What were the retailer's total sales, total profit and overall profit margin?
 
-1. How much did the retailer sell, how much profit did it make, and what was its overall profit margin?
+**Objective:** Calculate the retailer's overall financial performance across the dataset.
 
-   (total_profit/total_sales)*100
-   
-   - Find total_sales
-   - Find total_profit
-   - Find profit_margin_percentage
+**SQL query:**
 
-  ```sql
+```sql
 SELECT
     ROUND(SUM("Sales"), 2) AS total_sales,
     ROUND(SUM("Profit"), 2) AS total_profit,
@@ -137,32 +146,48 @@ SELECT
     ) AS profit_margin_percentage
 FROM "Sample-Superstore";
 ```
-Results:
 
-Metric                                 Result
+**Results:**
 
-total_sales                            $2,297,200.86
+| Metric | Result |
+|---|---:|
+| Total Sales | $2,297,200.86 |
+| Total Profit | $286,397.02 |
+| Overall Profit Margin | 12.47% |
 
-total_profit                           $286,397.02
+**Profit Margin Formula:**
 
-Overall profit_margin_percentage       12.47%
+Profit Margin (%) = (Total Profit ÷ Total Sales) × 100
 
+**Business Finding:**
 
-Business Finding:
+The retailer generated total sales of $2,297,200.86 and total profit of $286,397.02, resulting in an overall profit margin of 12.47%.
 
-The retailer generated total sales of $2,297,200.86 and total profit of $286,397.02, resulting in an overall profit margin of 12.47%. This means the business generated approximately $12.47 in profit for every $100 in sales.
+This means the business generated approximately $12.47 in profit for every $100 in sales.
 
-Business Interpretation:
+**Business Interpretation:**
 
-The overall margin provides a baseline for evaluating profitability across product categories, sub-categories and geographical regions. Further analysis is required to identify which areas contribute most to the retailer's profitability.
+The overall profit margin provides a baseline for evaluating profitability across product categories, sub-categories and geographical regions. Further analysis is required to identify which areas contribute most to the retailer's profitability.
 
-## 6. Analysis Results
+### Business Question 2: Which product categories and sub-categories perform best?
 
-*To be completed as SQL analysis progresses.*
+*Pending analysis.*
+
+### Business Question 3: Which regions generate the highest sales and profit?
+
+*Pending analysis.*
+
+### Business Question 4: Which products or sub-categories generate losses?
+
+*Pending analysis.*
+
+### Business Question 5: How are discounts associated with profitability?
+
+*Pending analysis.*
 
 ## 7. Business Recommendations
 
-*To be completed after findings have been evaluated.*
+To be completed after the findings have been evaluated.
 
 ## 8. Project Status
 
@@ -170,9 +195,12 @@ The overall margin provides a baseline for evaluating profitability across produ
 - [x] Dataset previewed
 - [x] Record count verified
 - [x] Table structure inspected
-- [ ] Overall sales and profit analysis
+- [x] Duplicate Row IDs checked
+- [x] Missing values checked in five selected fields
+- [x] Overall sales and profit analysis completed
 - [ ] Category and sub-category analysis
 - [ ] Regional analysis
+- [ ] Loss-making product analysis
 - [ ] Discount and profitability analysis
 - [ ] Business recommendations
 - [ ] Final portfolio documentation
