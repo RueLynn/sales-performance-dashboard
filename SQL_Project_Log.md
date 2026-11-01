@@ -133,7 +133,8 @@ The analysis will investigate:
 
 ### Business Question 1: What were the retailer's total sales, total profit and overall profit margin?
 
-**Objective:** Calculate the retailer's overall financial performance across the dataset.
+**Objective:** 
+Calculate the retailer's overall financial performance across the dataset.
 
 **SQL query:**
 
@@ -174,7 +175,6 @@ The overall profit margin provides a baseline for evaluating profitability acros
 This is an important business question because high sales do not always mean high profitability.
 
 **Objective**
-
 To compare the three product categories (Technology, Furniture and Office Supplies) based on total sales, total profit and profit margin. The analysis aims to identify which categories contribute most to business revenue and profitability.
 
 **SQL Query**
@@ -217,8 +217,71 @@ The analysis suggests that the business should maintain its focus on Technology 
 
 ### Business Question 3: Which regions generate the highest sales and profit?
 
-*Pending analysis.*
+**Objective**  
+To evaluate the sales performance and profitability of individual product sub-categories. The analysis aims to identify which sub-categories contribute the most to total sales and profit, as well as those with low or negative profitability.
 
+
+```sql
+SELECT
+    "Category",
+    "Sub-Category",
+    ROUND(SUM("Sales"), 2) AS total_sales,
+    ROUND(SUM("Profit"), 2) AS total_profit,
+    ROUND(
+        SUM("Profit") * 100.0 / SUM("Sales"), 2
+    ) AS profit_margin_percentage
+FROM "Sample-Superstore"
+GROUP BY
+    "Category",
+    "Sub-Category"
+ORDER BY total_profit DESC;
+```
+**Results**
+
+| Category | Sub-Category | Total Sales ($) | Total Profit ($) | Profit Margin (%) |
+|---|---|---:|---:|---:|
+| Technology | Copiers | 149,528.03 | 55,617.82 | 37.20 |
+| Technology | Phones | 330,007.05 | 44,515.73 | 13.49 |
+| Technology | Accessories | 167,380.32 | 41,936.64 | 25.05 |
+| Office Supplies | Paper | 78,479.21 | 34,053.57 | 43.39 |
+| Office Supplies | Binders | 203,412.73 | 30,221.76 | 14.86 |
+| Furniture | Chairs | 328,449.10 | 26,590.17 | 8.10 |
+| Office Supplies | Storage | 223,843.61 | 21,278.83 | 9.51 |
+| Office Supplies | Appliances | 107,532.16 | 18,138.01 | 16.87 |
+| Furniture | Furnishings | 91,705.16 | 13,059.14 | 14.24 |
+| Office Supplies | Envelopes | 16,476.40 | 6,964.18 | 42.27 |
+| Office Supplies | Art | 27,118.79 | 6,527.79 | 24.07 |
+| Office Supplies | Labels | 12,486.31 | 5,546.25 | 44.42 |
+| Technology | Machines | 189,238.63 | 3,384.76 | 1.79 |
+| Office Supplies | Fasteners | 3,024.28 | 949.52 | 31.40 |
+| Office Supplies | Supplies | 46,673.54 | -1,189.10 | -2.55 |
+| Furniture | Bookcases | 114,880.00 | -3,472.56 | -3.02 |
+| Furniture | Tables | 206,965.53 | -17,725.48 | -8.56 |
+
+**Key Findings**
+
+1. **Copiers generated the highest profit**, contributing $55,617.82 at a profit margin of 37.20%, despite generating less sales than Phones and Accessories.
+2. **Phones generated the highest sales** among all sub-categories, at $330,007.05, and contributed $44,515.73 in profit.
+3. **Paper achieved a strong profit margin of 43.39%**, generating $34,053.57 in profit from $78,479.21 in sales.
+4. **Machines had a relatively low profit margin of 1.79%**, despite generating $189,238.63 in sales.
+5. **Tables recorded the largest loss**, with a negative profit of $17,725.48 and a profit margin of -8.56%.
+6. **Bookcases and Supplies also generated losses**, with negative profits of $3,472.56 and $1,189.10 respectively.
+
+**Business Interpretation**
+
+The results indicate that sales volume alone is not a reliable measure of product performance. For example, Phones generated the highest sales, while Copiers generated the highest profit. Similarly, Paper achieved a higher profit margin than several sub-categories with substantially greater sales.
+
+Furniture requires further investigation, particularly Tables and Bookcases, which generated negative profits despite contributing to sales revenue. Machines also warrant attention because their high sales contribution resulted in a relatively low profit margin.
+
+These findings suggest that management should assess product-level profitability alongside sales performance when making pricing, discounting and product portfolio decisions.
+
+**Conclusion**
+
+The analysis identified significant differences in profitability across the 17 product sub-categories. Copiers and Paper demonstrated strong profit margins, while Tables and Bookcases were loss-making. The findings highlight the importance of monitoring both sales and profit when evaluating product performance.
+
+Further analysis of discount levels may help investigate factors associated with the losses observed in Tables, Bookcases and Supplies.
+
+**Status:** Completed
 ### Business Question 4: Which products or sub-categories generate losses?
 
 *Pending analysis.*
