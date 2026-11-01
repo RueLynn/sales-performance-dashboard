@@ -67,6 +67,14 @@ PRAGMA table_info("Sample-Superstore");
 
 **Observation:** SQLite identified Sales and Profit as REAL fields, Quantity as INTEGER, and Order Date and Ship Date as TEXT. Date formatting will need to be considered when performing time-based analysis.
 
+### Task 5: Check for duplicate records
+
+**Objective:**  Identify duplicate Row IDs that could affect the accuracy of the analysis.
+
+- SQL method: Used GROUP BY, COUNT() and HAVING to identify repeated Row IDs.
+- Result: 0 duplicate Row IDs found.
+- Finding: All Row IDs appear to be unique.
+
 ## 5. Business Questions
 
 The analysis will investigate:
